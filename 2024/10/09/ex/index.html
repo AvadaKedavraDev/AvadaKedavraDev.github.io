@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Title -->
+<title>ex - YueFeng&#39;s Blog</title>
+
+<!-- Icon -->
+<link rel="icon" href="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg">
+
+<!-- Fonts -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null, this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+
+
+
+<!-- Style -->
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-theme-pure@1.0.1/dist/main.css"> -->
+
+
+
+
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    <meta name="generator" content="Hexo 7.3.0"></head>
+    <body>
+        <div class="main gt-bg-theme-color-first">
+            <div class="main-content">
+                <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YueFeng&#39;s Blog
+        </div>
+    </a>
+    <button aria-label="Navbar Toggler" class="navbar-toggler" type="button" id="changeNavbar">
+        <i class="gt-c-content-color-first" style="font-size: 18px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18px" fill="currentColor">
+                <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+            </svg>
+        </i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center; ">
+            
+                <div class="nav-item">
+                    <a href="/" class="menu gt-a-link" target="_self">首页</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/archives/" class="menu gt-a-link" target="_self">归档</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/tags/" class="menu gt-a-link" target="_self">标签</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/friends/" class="menu gt-a-link" target="_self">友链</a>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = function() {
+        let element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else { 
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+                <div class="post-container">
+    <div class="post-detail gt-bg-theme-color-second gt-c-content-color-first">
+        <article class="gt-post-content">
+            <h1 class="post-title">ex</h1>
+            <div class="post-info">
+                <time class="post-time gt-c-content-color-first">
+                    发布于 2024-10-09 |</time>
+                
+                    
+                
+            </div>
+            <hr>
+            <div class="post-content gt-c-content-color-first">
+                <blockquote>
+<p>Spring面试题</p>
+</blockquote>
+<hr>
+<h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><blockquote>
+<p>开发者通常不和AbstractApplicationContext直接打交道，<br>而是通过其子类如 ClassPathXmlApplicationContext(xml配置方式) 或 AnnotationConfigApplicationContext(注解配置方式)来交互</p>
+</blockquote>
+<h4 id="Spring的启动"><a href="#Spring的启动" class="headerlink" title="Spring的启动"></a>Spring的启动</h4><blockquote>
+<p>Spring的启动通常要去加载xml配置或者通过注解去扫描Bean</p>
+</blockquote>
+<ul>
+<li><code>xml</code>配置方式<ol>
+<li>配置文件<code>example.xml</code> <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span>
+<span class="hljs-tag">          <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="hljs-tag">          <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans</span></span>
+<span class="hljs-string"><span class="hljs-tag">              http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;exampleBean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.example.ExampleBean&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;someProperty&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;someValue&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></code></pre></li>
+<li>设置<code>启动类</code><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+   <span class="hljs-comment">// 读取启动配置文件(此处的位置为类加载路径下且为非SpringBoot的原生Spring配置)</span>
+   <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ac</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;classpath:example.xml&quot;</span>);
+   <span class="hljs-comment">// 获取 bean 实例</span>
+   <span class="hljs-type">MyService</span> <span class="hljs-variable">myService</span> <span class="hljs-operator">=</span> (MyService) context.getBean(<span class="hljs-string">&quot;myService&quot;</span>);    
+ &#125;</code></pre></li>
+</ol>
+</li>
+<li><code>注解</code>方式配置<ol>
+<li>声明Bean<pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;
+<span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;
+
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppConfig</span> &#123;
+  
+   <span class="hljs-meta">@Bean</span>
+   <span class="hljs-keyword">public</span> ExampleBean <span class="hljs-title function_">exampleBean</span><span class="hljs-params">()</span> &#123;
+       <span class="hljs-type">ExampleBean</span> <span class="hljs-variable">bean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ExampleBean</span>();
+       bean.setSomeProperty(<span class="hljs-string">&quot;someValue&quot;</span>);
+       <span class="hljs-keyword">return</span> bean;
+   &#125;
+&#125;</code></pre></li>
+<li>手动扫描注解配置启动类  <pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;
+   <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(AppConfig.class);
+   <span class="hljs-type">ExampleBean</span> <span class="hljs-variable">myBean</span> <span class="hljs-operator">=</span> (ExampleBean) context.getBean(<span class="hljs-string">&quot;exampleBean&quot;</span>);
+&#125;</code></pre></li>
+</ol>
+</li>
+<li>其他涉及注解的方式(这些方法需要对Java的类添加指定注解，还需指定扫描的路径以及其他设置，此篇文章重点不在于此)<blockquote>
+<p>上述字眼皆在引入Spring源码的突破点和关联相关预备知识</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>作为加载配置的启动类，<br>不管是<code>AnnotationConfigApplicationContext</code>还是<code>ClassPathXmlApplicationContext</code><br>都是继承或实现了大量的模版抽象类才具有了“启动”的功能，所以想要快速学习Spring的编码和思维方式，<br>模版类的学习是非常容易突破且入手的</p>
+</blockquote>
+<ul>
+<li>以xml启动类的继承一览<br> <img src="https://cdn.jsdelivr.net/gh/AvadaKedavraDev/AKD@main/img/20241010141210.png"><blockquote>
+<p>虽然在基础启动类ClassPathXmlApplicationContext上继承和实现了大量类，<br>但对分析源码来说，所有的继承通常都是扩展，即是扩展就存在单一类可体现所有父类行为<br>综上，此处只对分支最多且最典型的AbstractApplicationContext进行梳理</p>
+</blockquote>
+</li>
+<li><code>AbstractApplicationContext</code>抽象类 <pre><code class="hljs java"><span class="hljs-comment">/*</span>
+<span class="hljs-comment">    在new ClassPathXmlApplicationContext(&quot;classpath:example.xml&quot;)中，</span>
+<span class="hljs-comment">    调用了ClassPathXmlApplicationContext类的String类型的构造参数，</span>
+<span class="hljs-comment">    而此构造参数以及重载构造参数最终都指向一个三参构造参数，关系如下</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractXmlApplicationContext</span> &#123;
+    <span class="hljs-comment">// 默认使用的构造参数</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClassPathXmlApplicationContext</span><span class="hljs-params">(String configLocation)</span> <span class="hljs-keyword">throws</span> BeansException &#123;
+        <span class="hljs-built_in">this</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;configLocation&#125;, <span class="hljs-literal">true</span>, (ApplicationContext)<span class="hljs-literal">null</span>);
+    &#125;
+    <span class="hljs-comment">// 重载参数指向的三参构造参数</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ClassPathXmlApplicationContext</span><span class="hljs-params">(String[] configLocations, <span class="hljs-type">boolean</span> refresh, ApplicationContext parent)</span> <span class="hljs-keyword">throws</span> BeansException &#123;
+        <span class="hljs-comment">/*</span>
+<span class="hljs-comment">            调用父级构造器，构造多层构造器链，确保每层父类被正确初始化，若不显式调用，则会在编译后默认添加super()到第一行 </span>
+<span class="hljs-comment">            若是无此项采用默认的空参构造器，会缺少与父级上下文同步的设置，此设置可减少子级重新配置通用参数的工作</span>
+<span class="hljs-comment">            但是默认使用的都是String类型的构造器 其实parent为null，故此项等同于super()</span>
+<span class="hljs-comment">        */</span>
+        <span class="hljs-built_in">super</span>(parent); 
+        <span class="hljs-built_in">this</span>.setConfigLocations(configLocations); <span class="hljs-comment">// 此项为配置文件挂载，文件不存在等健壮报错等处理</span>
+        <span class="hljs-keyword">if</span> (refresh) &#123;
+        <span class="hljs-comment">/*</span>
+<span class="hljs-comment">            此处为Spring启动核心所在，详见下面的类</span>
+<span class="hljs-comment">        */</span>
+            <span class="hljs-built_in">this</span>.refresh();
+        &#125;
+    &#125;
+&#125;
+
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">   抽象模版启动核心类</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AbstractApplicationContext</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">DefaultResourceLoader</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ConfigurableApplicationContext</span>, DisposableBean &#123;
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">refresh</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException, IllegalStateException &#123;
+        <span class="hljs-comment">// 锁Monitor，保证线程安全(ps:用来启停互斥，你总不能无脑开关吧？！等等，你刚刚是不是开啦?)</span>
+        <span class="hljs-keyword">synchronized</span>(<span class="hljs-built_in">this</span>.startupShutdownMonitor) &#123;
+            <span class="hljs-comment">/*</span>
+<span class="hljs-comment">                prepareRefresh做准备工作，日志你得加吧，时间戳，版本号，运行环境也得加吧</span>
+<span class="hljs-comment">                这可是Spring。（ps:看源码要知道学什么，自己的接口方法也要加日志，</span>
+<span class="hljs-comment">                工作的越久就会发现，这些边边角角不注意的地方，往往是开发优劣之分的关键点）</span>
+<span class="hljs-comment">            */</span>
+            <span class="hljs-built_in">this</span>.prepareRefresh(); 
+            <span class="hljs-comment">// 获取一个BeanFactory,包含启动载入的配置Bean.实质性抛开其他属性，就是封装了一个包含Bean名称的Map(beanDefinitionMap)</span>
+            <span class="hljs-type">ConfigurableListableBeanFactory</span> <span class="hljs-variable">beanFactory</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.obtainFreshBeanFactory();
+            <span class="hljs-comment">/*</span>
+<span class="hljs-comment">                1.设置BeanFactory的类加载器。</span>
+<span class="hljs-comment">                2.设置表达式解析器（Expression Resolver），如SpEL（Spring Expression Language）解析器。</span>
+<span class="hljs-comment">                3.添加一些特殊的bean后处理器，比如用于处理@Autowired注解的自动装配基础设施。</span>
+<span class="hljs-comment">                4.注册可以解析占位符配置值的属性编辑器（PropertyEditor）。</span>
+<span class="hljs-comment">                5.注册可解决资源路径的转换服务。</span>
+<span class="hljs-comment">            */</span>
+            <span class="hljs-built_in">this</span>.prepareBeanFactory(beanFactory);
+
+            <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-comment">/* </span>
+<span class="hljs-comment">                    下面三行代码体现了共性的功能，都是类钩子函数</span>
+<span class="hljs-comment">                    1.暴露方法给子类实现，在BeanFactory准备好，BeanFactoryPostProcessor之前调用(Bean实例化前)</span>
+<span class="hljs-comment">                    2.调用所有已注册的BeanFactoryPostProcessor实例，在bean实例化之前修改bean定义。</span>
+<span class="hljs-comment">                    3.这些处理器可以修改BeanFactory的配置元数据，在bean实例化之后但在初始化完成之前对bean实例进行处理。</span>
+<span class="hljs-comment">                */</span> 
+                <span class="hljs-built_in">this</span>.postProcessBeanFactory(beanFactory);
+                <span class="hljs-built_in">this</span>.invokeBeanFactoryPostProcessors(beanFactory);
+                <span class="hljs-built_in">this</span>.registerBeanPostProcessors(beanFactory);
+                
+                <span class="hljs-comment">// 国际化i18n</span>
+                <span class="hljs-built_in">this</span>.initMessageSource();
+                <span class="hljs-comment">// 初始化应用事件广播器，这是一个用于发布应用事件到监听器的组件。</span>
+                <span class="hljs-comment">// 如果配置了applicationEventMulticaster bean，则使用该bean；否则，将创建一个默认的实现。(applicationEventMulticaster默认是单例)</span>
+                <span class="hljs-built_in">this</span>.initApplicationEventMulticaster();
+                <span class="hljs-comment">// 自定义刷新方法</span>
+                <span class="hljs-built_in">this</span>.onRefresh();
+                <span class="hljs-comment">// 注册所有应用监听器(指由Spring配置注解或者xml且实现ApplicationListener接口的Bean)，</span>
+                <span class="hljs-comment">// 这些监听器可以接收并响应由应用上下文发布的事件</span>
+                <span class="hljs-built_in">this</span>.registerListeners();
+                <span class="hljs-comment">/*</span>
+<span class="hljs-comment">                   完成Bean工厂的初始化，包含工厂中所有的Bean，</span>
+<span class="hljs-comment">                   确保了所有的非懒加载单例 Bean 都被实例化和初始化</span>
+<span class="hljs-comment">                   SpringBean的生命周期所在</span>
+<span class="hljs-comment">                */</span>
+                <span class="hljs-built_in">this</span>.finishBeanFactoryInitialization(beanFactory);
+                <span class="hljs-built_in">this</span>.finishRefresh();
+            &#125; <span class="hljs-keyword">catch</span> (BeansException var9) &#123;
+               <span class="hljs-comment">//...</span>
+            &#125; <span class="hljs-keyword">finally</span> &#123;
+                <span class="hljs-built_in">this</span>.resetCommonCaches();
+            &#125;
+
+        &#125;
+     &#125;
+  
+    <span class="hljs-comment">/*</span>
+<span class="hljs-comment">        finishBeanFactoryInitialization</span>
+<span class="hljs-comment">    */</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">finishBeanFactoryInitialization</span><span class="hljs-params">(ConfigurableListableBeanFactory beanFactory)</span> &#123;
+        <span class="hljs-comment">// 看是否存在转换器Bean 有的话实例化</span>
+        <span class="hljs-keyword">if</span> (beanFactory.containsBean(<span class="hljs-string">&quot;conversionService&quot;</span>) &amp;&amp; beanFactory.isTypeMatch(<span class="hljs-string">&quot;conversionService&quot;</span>, ConversionService.class)) &#123;
+            beanFactory.setConversionService((ConversionService)beanFactory.getBean(<span class="hljs-string">&quot;conversionService&quot;</span>, ConversionService.class));
+        &#125;
+        
+        <span class="hljs-comment">/* </span>
+<span class="hljs-comment">            处理Spring的语法解析器 eg:</span>
+<span class="hljs-comment">            &lt;bean id=&quot;myBean&quot; class=&quot;com.example.MyBean&quot;&gt;</span>
+<span class="hljs-comment">              &lt;property name=&quot;message&quot; value=&quot;$&#123;app.message&#125;&quot;/&gt;</span>
+<span class="hljs-comment">            &lt;/bean&gt;</span>
+<span class="hljs-comment">            此处配置语法解析器 则会将上述的$&#123;app.message&#125;转化为environment.getProperty(&quot;property.name&quot;)</span>
+<span class="hljs-comment">        */</span>
+        <span class="hljs-keyword">if</span> (!beanFactory.hasEmbeddedValueResolver()) &#123;
+            beanFactory.addEmbeddedValueResolver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">StringValueResolver</span>() &#123;
+                <span class="hljs-keyword">public</span> String <span class="hljs-title function_">resolveStringValue</span><span class="hljs-params">(String strVal)</span> &#123;
+                    <span class="hljs-keyword">return</span> AbstractApplicationContext.<span class="hljs-built_in">this</span>.getEnvironment().resolvePlaceholders(strVal);
+                &#125;
+            &#125;);
+        &#125;
+
+        String[] weaverAwareNames = beanFactory.getBeanNamesForType(LoadTimeWeaverAware.class, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>);
+        String[] var3 = weaverAwareNames;
+        <span class="hljs-type">int</span> <span class="hljs-variable">var4</span> <span class="hljs-operator">=</span> weaverAwareNames.length;
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">var5</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; var5 &lt; var4; ++var5) &#123;
+            <span class="hljs-type">String</span> <span class="hljs-variable">weaverAwareName</span> <span class="hljs-operator">=</span> var3[var5];
+            <span class="hljs-built_in">this</span>.getBean(weaverAwareName);
+        &#125;
+
+        beanFactory.setTempClassLoader((ClassLoader)<span class="hljs-literal">null</span>);
+        beanFactory.freezeConfiguration();
+        beanFactory.preInstantiateSingletons();
+    &#125;
+&#125;
+
+<span class="hljs-comment">/*</span>
+<span class="hljs-comment">    装配工厂(集大成者),扩展了父类的功能是非常核心的接口，</span>
+<span class="hljs-comment">    拥有自动装配，管理 Bean 的定义、注册 Bean 后处理器、获取 Bean 列表等功能</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ConfigurableListableBeanFactory</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ListableBeanFactory</span>, AutowireCapableBeanFactory, ConfigurableBeanFactory &#123;
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">prepareBeanFactory</span><span class="hljs-params">(ConfigurableListableBeanFactory beanFactory)</span> &#123;
+        <span class="hljs-comment">// 设置类加载器 用来进行动态加载类，同时支持AOP等功能</span>
+        beanFactory.setBeanClassLoader(<span class="hljs-built_in">this</span>.getClassLoader());
+        <span class="hljs-comment">// 设置 Bean 表达式解析器</span>
+        beanFactory.setBeanExpressionResolver(<span class="hljs-keyword">new</span> <span class="hljs-title class_">StandardBeanExpressionResolver</span>(beanFactory.getBeanClassLoader()));
+        <span class="hljs-comment">// 注册资源编辑器 注册器</span>
+        beanFactory.addPropertyEditorRegistrar(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ResourceEditorRegistrar</span>(<span class="hljs-built_in">this</span>, <span class="hljs-built_in">this</span>.getEnvironment()));
+        <span class="hljs-comment">/*</span>
+<span class="hljs-comment">            向BeanFactory注册一个后处理器，这个后处理器会在每个bean实例化之后但在其初始化方法（例如@PostConstruct或InitializingBean.afterPropertiesSet()）被调用之前运行。</span>
+<span class="hljs-comment">            对于实现了ApplicationContextAware接口的bean，ApplicationContextAwareProcessor会自动设置它们的ApplicationContext属性 </span>
+<span class="hljs-comment">            ApplicationContextAware: 允许bean获取到应用上下文。</span>
+<span class="hljs-comment">            BeanFactoryAware: 允许bean获取到创建它的BeanFactory。</span>
+<span class="hljs-comment">            MessageSourceAware: 允许bean获取到消息源，通常用于国际化。</span>
+<span class="hljs-comment">            ResourceLoaderAware: 允许bean获取到资源加载器，这可以用来加载文件或其他类型的资源。</span>
+<span class="hljs-comment">            ApplicationEventPublisherAware: 允许bean发布事件到应用上下文中。</span>
+<span class="hljs-comment">            ServletConfigAware 和 ServletContextAware: 在Web环境中使用，分别允许bean获取到Servlet配置和Servlet上下文</span>
+<span class="hljs-comment">            ps：其实就是只要这个工厂Bean提供了这些方法的实现，那么就可以提供其需要的上下文环境和服务</span>
+<span class="hljs-comment">        */</span>
+        beanFactory.addBeanPostProcessor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ApplicationContextAwareProcessor</span>(<span class="hljs-built_in">this</span>));
+        
+        <span class="hljs-comment">// 忽略依赖注入 这些接口通常由Spring自动管理</span>
+        beanFactory.ignoreDependencyInterface();
+        <span class="hljs-comment">// ...</span>
+        
+        <span class="hljs-comment">// 注册一些依赖供启动后直接调用，略去显示声明</span>
+        beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+        beanFactory.registerResolvableDependency(ResourceLoader.class, <span class="hljs-built_in">this</span>);
+        beanFactory.registerResolvableDependency(ApplicationEventPublisher.class, <span class="hljs-built_in">this</span>);
+        beanFactory.registerResolvableDependency(ApplicationContext.class, <span class="hljs-built_in">this</span>);
+  
+        <span class="hljs-comment">// 添加监听器</span>
+        beanFactory.addBeanPostProcessor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ApplicationListenerDetector</span>(<span class="hljs-built_in">this</span>));
+        
+        <span class="hljs-comment">// 特殊Bean处理 </span>
+        <span class="hljs-keyword">if</span> (beanFactory.containsBean(<span class="hljs-string">&quot;loadTimeWeaver&quot;</span>)) &#123;
+            beanFactory.addBeanPostProcessor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">LoadTimeWeaverAwareProcessor</span>(beanFactory));
+            beanFactory.setTempClassLoader(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ContextTypeMatchClassLoader</span>(beanFactory.getBeanClassLoader()));
+        &#125;
+
+        <span class="hljs-comment">// 单例模式的特殊Bean</span>
+        <span class="hljs-keyword">if</span> (!beanFactory.containsLocalBean(<span class="hljs-string">&quot;environment&quot;</span>)) &#123;
+            beanFactory.registerSingleton(<span class="hljs-string">&quot;environment&quot;</span>, <span class="hljs-built_in">this</span>.getEnvironment());
+        &#125;
+
+        <span class="hljs-keyword">if</span> (!beanFactory.containsLocalBean(<span class="hljs-string">&quot;systemProperties&quot;</span>)) &#123;
+            beanFactory.registerSingleton(<span class="hljs-string">&quot;systemProperties&quot;</span>, <span class="hljs-built_in">this</span>.getEnvironment().getSystemProperties());
+        &#125;
+
+        <span class="hljs-keyword">if</span> (!beanFactory.containsLocalBean(<span class="hljs-string">&quot;systemEnvironment&quot;</span>)) &#123;
+            beanFactory.registerSingleton(<span class="hljs-string">&quot;systemEnvironment&quot;</span>, <span class="hljs-built_in">this</span>.getEnvironment().getSystemEnvironment());
+        &#125;
+    &#125;
+&#125;</code></pre></li>
+</ul>
+
+            </div>
+        </article>
+    </div>
+    <br>
+    
+        <div class="next-prev-post">
+            
+            
+                <div class="next-post">
+                    <div class="next gt-c-content-color-first">
+                        下一篇：<a href="/2024/10/08/test/" 
+                            class="post-title gt-a-link">Nginx配置</a>
+                    </div>
+                </div>
+            
+        </div>
+    
+    
+
+    
+
+    
+</div>
+
+                <div class="site-footer gt-c-content-color-first">
+    <div class="footer-main">
+        <!-- 建议保留版权信息或者添加主题信息到友链，感谢您的理解 -->
+        <!-- 文件位置：layout/_includes/footer.ejs -->
+        <span style="text-align: right; float: right;">Theme <a 
+            href="https://github.com/renbaoshuo/hexo-theme-pure" target="_blank">Pure</a> | Powered by <a 
+            href="https://hexo.io" target="_blank">Hexo</a></span>
+        <span style="text-align: left;">Footer HTML
+</span>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Title -->
+<title>Nginx配置 - YueFeng&#39;s Blog</title>
+
+<!-- Icon -->
+<link rel="icon" href="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg">
+
+<!-- Fonts -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null, this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+
+
+
+<!-- Style -->
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-theme-pure@1.0.1/dist/main.css"> -->
+
+
+
+
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    <meta name="generator" content="Hexo 7.3.0"></head>
+    <body>
+        <div class="main gt-bg-theme-color-first">
+            <div class="main-content">
+                <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            YueFeng&#39;s Blog
+        </div>
+    </a>
+    <button aria-label="Navbar Toggler" class="navbar-toggler" type="button" id="changeNavbar">
+        <i class="gt-c-content-color-first" style="font-size: 18px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="18px" fill="currentColor">
+                <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+            </svg>
+        </i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center; ">
+            
+                <div class="nav-item">
+                    <a href="/" class="menu gt-a-link" target="_self">首页</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/archives/" class="menu gt-a-link" target="_self">归档</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/tags/" class="menu gt-a-link" target="_self">标签</a>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="/friends/" class="menu gt-a-link" target="_self">友链</a>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = function() {
+        let element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else { 
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+                <div class="post-container">
+    <div class="post-detail gt-bg-theme-color-second gt-c-content-color-first">
+        <article class="gt-post-content">
+            <h1 class="post-title">Nginx配置</h1>
+            <div class="post-info">
+                <time class="post-time gt-c-content-color-first">
+                    发布于 2024-10-08 |</time>
+                
+                    
+                        #<a href="/tags/Docs%E6%96%87%E6%A1%A3/" class="post-tag">
+                            Docs文档</a>
+                    
+                
+            </div>
+            <hr>
+            <div class="post-content gt-c-content-color-first">
+                <blockquote>
+<p>记录Nginx配置与使用</p>
+</blockquote>
+<hr>
+<h4 id="🖋-Nginx的下载"><a href="#🖋-Nginx的下载" class="headerlink" title="🖋 Nginx的下载"></a>🖋 Nginx的下载</h4><ul>
+<li>Windows的下载地址（官网）：<ul>
+<li><a target="_blank" rel="noopener" href="http://nginx.org/">Nginx官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://nginx.p2hp.com/">Nginx中文网</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Nginx的使用"><a href="#Nginx的使用" class="headerlink" title="Nginx的使用"></a>Nginx的使用</h4><ul>
+<li><p>常用目录结构</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>conf</td>
+<td>存放Nginx配置文件的目录</td>
+<td>配置文件nginx.conf</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>存放默认的Html网页</td>
+<td>index页和50x错误页</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>存储Nginx运行日志</td>
+<td>access和error日志</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>配置文件</p>
+</li>
+</ul>
+<pre><code class="hljs nginx">
+<span class="hljs-comment">### 全局块  ###</span>
+<span class="hljs-attribute">user</span> nginx;  <span class="hljs-comment"># 设置 Nginx 工作进程运行的身份(默认为nobody 不同操作系统不同，此项主要涉及安全问题)</span>
+<span class="hljs-attribute">worker_processes</span> auto;  <span class="hljs-comment"># 自动根据 CPU 核心数设置工作进程数量 通常等于CPU核心数或者为其俩倍</span>
+<span class="hljs-attribute">error_log</span> /var/log/nginx/<span class="hljs-literal">error</span>.log <span class="hljs-literal">warn</span>;  <span class="hljs-comment"># 错误日志的位置和级别</span>
+<span class="hljs-attribute">pid</span> /run/nginx.pid;  <span class="hljs-comment"># 主进程的 PID 文件位置</span>
+
+<span class="hljs-comment">### 事件块 ####</span>
+<span class="hljs-comment"># use：用来指定Nginx的工作模式。Nginx支持的工作模式有select、poll、kqueue、epoll、rtsig和/dev/poll。</span>
+<span class="hljs-comment"># 其中select和poll都是标准的工作模式，kqueue和epoll是高效的工作模式，不同的是epoll用在Linux平台上，而kqueue用在BSD系统中，对于Linux系统，epoll工作模式是首选。</span>
+<span class="hljs-comment">#worker_connections：用于定义Nginx每个进程的最大连接数，即接收前端的最大请求数，默认是1024。</span>
+<span class="hljs-comment"># 最大客户端连接数由worker_processes和worker_connections决定，即Max_clients=worker_processes*worker_connections，</span>
+<span class="hljs-comment"># 在作为反向代理时，最大客户端连接数量 = worker_processes * worker_connections/4。 </span>
+<span class="hljs-comment"># 进程的最大连接数受Linux系统进程的最大打开文件数限制，在执行操作系统命令“ulimit -n 65536”后worker_connections的设置才能生效。</span>
+<span class="hljs-comment">### 事件块 ####</span>
+<span class="hljs-section">events</span> &#123;
+    <span class="hljs-attribute">worker_connections</span> <span class="hljs-number">1024</span>;  <span class="hljs-comment"># 每个工作进程可以同时处理的最大连接数 默认为512</span>
+    <span class="hljs-attribute">multi_accept</span> <span class="hljs-literal">on</span>;  <span class="hljs-comment">#设置一个进程是否同时接受多个网络连接，默认为off </span>
+    <span class="hljs-attribute">use</span> <span class="hljs-literal">epoll</span>;  <span class="hljs-comment"># 使用 epoll 连接处理模型（Linux 系统推荐）;事件驱动模型</span>
+    <span class="hljs-attribute">accept_mutex</span> <span class="hljs-literal">on</span>;   <span class="hljs-comment">#设置网路连接序列化，防止惊群现象发生，默认为on</span>
+&#125;
+
+<span class="hljs-comment">### HTTP 块  ###</span>
+<span class="hljs-comment"># 此处配置主要分为两块 server块和upstream(可选)，upstream为nginx反向代理的服务器宕机的备用机，通常配置此项为了增加安全性</span>
+<span class="hljs-comment"># server块又包括location块，每个server块都相当于一个虚拟的主机</span>
+<span class="hljs-comment">### HTTP 块  ###</span>
+<span class="hljs-section">http</span> &#123;
+    <span class="hljs-attribute">include</span>       /etc/nginx/mime.types;  <span class="hljs-comment"># 包含 MIME 类型定义 详见nginx/conf目录下 不设置默认情况下有可能识别到无法处理的MIME类型</span>
+    <span class="hljs-attribute">default_type</span>  application/octet-stream;  <span class="hljs-comment"># 默认 MIME 类型</span>
+
+    <span class="hljs-attribute">log_format</span>  main  <span class="hljs-string">&#x27;<span class="hljs-variable">$remote_addr</span> - <span class="hljs-variable">$remote_user</span> [<span class="hljs-variable">$time_local</span>] &quot;<span class="hljs-variable">$request</span>&quot; &#x27;</span>
+                      <span class="hljs-string">&#x27;<span class="hljs-variable">$status</span> <span class="hljs-variable">$body_bytes_sent</span> &quot;<span class="hljs-variable">$http_referer</span>&quot; &#x27;</span>
+                      <span class="hljs-string">&#x27;&quot;<span class="hljs-variable">$http_user_agent</span>&quot; &quot;<span class="hljs-variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;  <span class="hljs-comment"># 定义访问日志格式</span>
+
+    <span class="hljs-attribute">access_log</span>  /var/log/nginx/access.log  main;  <span class="hljs-comment"># 访问日志的位置和格式</span>
+
+    <span class="hljs-attribute">sendfile</span>        <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 启用高效文件传输模式</span>
+    <span class="hljs-attribute">tcp_nopush</span>      <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 减少网络包的数量</span>
+    <span class="hljs-attribute">tcp_nodelay</span>     <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 禁用 Nagle 算法</span>
+    <span class="hljs-attribute">keepalive_timeout</span>  <span class="hljs-number">65</span>;  <span class="hljs-comment"># 保持连接的超时时间</span>
+
+    <span class="hljs-attribute">gzip</span>  <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 开启 Gzip 压缩</span>
+    <span class="hljs-attribute">gzip_disable</span> <span class="hljs-string">&quot;msie6&quot;</span>;  <span class="hljs-comment"># 对于 IE6 浏览器禁用 Gzip</span>
+
+    <span class="hljs-comment"># 虚拟主机配置</span>
+    <span class="hljs-section">server</span> &#123;
+        <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;  <span class="hljs-comment"># 监听 80 端口</span>
+        <span class="hljs-attribute">server_name</span> example.com www.example.com;  <span class="hljs-comment"># 服务的域名</span>
+
+        <span class="hljs-comment"># 静态文件根目录</span>
+        <span class="hljs-attribute">root</span> /var/www/html;
+        <span class="hljs-attribute">index</span> index.html index.htm;  <span class="hljs-comment"># 默认索引文件</span>
+
+        <span class="hljs-comment"># 处理所有请求</span>
+        <span class="hljs-section">location</span> / &#123;
+            <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;  <span class="hljs-comment"># 尝试查找文件或目录，不存在则返回 404，此处$uri为当前请求路径/ex则先查询是否有ex的文件，若无则访问此目录</span>
+        &#125;
+
+        <span class="hljs-comment"># 处理特定路径下的请求</span>
+        <span class="hljs-section">location</span> /images/ &#123;
+            <span class="hljs-attribute">autoindex</span> <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 启用目录列表功能</span>
+            <span class="hljs-attribute">autoindex_exact_size</span> <span class="hljs-literal">off</span>;  <span class="hljs-comment"># 不显示文件的确切大小</span>
+            <span class="hljs-attribute">autoindex_localtime</span> <span class="hljs-literal">on</span>;  <span class="hljs-comment"># 显示本地时间</span>
+        &#125;
+
+        <span class="hljs-comment"># 错误页面</span>
+        <span class="hljs-attribute">error_page</span> <span class="hljs-number">404</span> /<span class="hljs-number">404</span>.html;
+        <span class="hljs-section">location</span> = /<span class="hljs-number">404</span>.html &#123;
+            internal;  <span class="hljs-comment"># 只能由内部重定向访问</span>
+        &#125;
+    &#125;
+
+    <span class="hljs-comment"># 反向代理配置</span>
+    <span class="hljs-section">server</span> &#123;
+        <span class="hljs-attribute">listen</span> <span class="hljs-number">8080</span>;  <span class="hljs-comment"># 监听 8080 端口</span>
+        <span class="hljs-attribute">server_name</span> proxy.example.com;
+
+        <span class="hljs-section">location</span> / &#123;
+            <span class="hljs-attribute">proxy_pass</span> https://backend;  <span class="hljs-comment"># 反向代理到后端服务器</span>
+            <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;  <span class="hljs-comment"># 传递原始 Host 请求头</span>
+            <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;  <span class="hljs-comment"># 传递客户端 IP 地址</span>
+        &#125;
+    &#125;
+
+    <span class="hljs-comment"># 上游服务器组</span>
+    <span class="hljs-section">upstream</span> backend &#123;
+        <span class="hljs-attribute">server</span> <span class="hljs-number">192.168.1.1:8081</span>;  <span class="hljs-comment"># 第一个后端服务器</span>
+        <span class="hljs-attribute">server</span> <span class="hljs-number">192.168.1.2:8081</span>;  <span class="hljs-comment"># 第二个后端服务器</span>
+    &#125;
+&#125;
+</code></pre>
+            </div>
+        </article>
+    </div>
+    <br>
+    
+        <div class="next-prev-post">
+            
+                <div class="prev-post">
+                    <div class="prev gt-c-content-color-first">
+                        上一篇：<a href="/2024/10/09/ex/" 
+                            class="post-title gt-a-link">ex</a>
+                    </div>
+                </div>
+            
+            
+                <div class="next-post">
+                    <div class="next gt-c-content-color-first">
+                        下一篇：<a href="/2024/09/25/hello-world/" 
+                            class="post-title gt-a-link">你好文彬</a>
+                    </div>
+                </div>
+            
+        </div>
+    
+    
+
+    
+
+    
+</div>
+
+                <div class="site-footer gt-c-content-color-first">
+    <div class="footer-main">
+        <!-- 建议保留版权信息或者添加主题信息到友链，感谢您的理解 -->
+        <!-- 文件位置：layout/_includes/footer.ejs -->
+        <span style="text-align: right; float: right;">Theme <a 
+            href="https://github.com/renbaoshuo/hexo-theme-pure" target="_blank">Pure</a> | Powered by <a 
+            href="https://hexo.io" target="_blank">Hexo</a></span>
+        <span style="text-align: left;">Footer HTML
+</span>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
